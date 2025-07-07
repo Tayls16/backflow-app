@@ -1,0 +1,204 @@
+<!-- version: 2025-07-07 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="logoBase64.js"></script>
+    <script defer src="script.js"></script>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0078d7">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Backflow Test Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+  <h1>Backflow Prevention Test Form</h1>
+
+  <form id="backflowForm">
+      
+    <label for="job">Job:</label>
+    <input type="text" id="jobId" name="job" />
+
+    <fieldset>
+      <legend>Owner / Site Info</legend>
+      <label>Owner/Occupier: <input type="text" name="owner" /></label><br />
+      <label>Address: <input type="text" name="address" /></label><br />
+      <label>Suburb: <input type="text" name="suburb" /></label><br />
+      <label>Post Code: <input type="text" name="postcode" /></label><br />
+      <label>Phone: <input type="text" name="phone" /></label><br />
+    </fieldset>
+
+    <fieldset>
+      <legend>Test Details</legend>
+      <label>Authorised Tester Name: <input type="text" name="tester_name" /></label><br />
+      <label>License No: <input type="text" name="license" /></label><br />
+      <label>Test Date: <input type="date" name="test_date" /></label><br />
+      <label>Permission received to turn off water:</label><br>
+      <label><input type="radio" name="permission_received" value="Yes"> Y</label>
+      <label><input type="radio" name="permission_received" value="No"> N</label><br><br>
+      <label>Initial Test? <input type="checkbox" name="initial_test" /></label>
+      <label>Annual Test? <input type="checkbox" name="annual_test" /></label><br />
+      <label>Test Kit Serial No: <input type="text" name="gauge_serial" /></label><br />
+      <label>Calibration Date: <input type="date" name="gauge_calibration" /></label><br />
+    </fieldset>
+
+    <fieldset>
+      <legend>Device Info</legend>
+      <label><strong>Device Protection Type:</strong></label><br>
+      <label><input type="radio" name="protection_type" value="Zone"> Zone Protection</label>
+      <label><input type="radio" name="protection_type" value="Containment"> Containment Protection</label>
+      <label><input type="radio" name="protection_type" value="Individual"> Individual Protection</label>
+      <label>Device Location: <input type="text" name="device_location" /></label><br />
+      <label>Device Type:
+        <select name="device_type">
+          <option value="reduced">Reduced Pressure Zone Device</option>
+          <option value="double">Double Check Valve</option>
+          <option value="single">Single Check Valve</option>
+        </select>
+      </label><br />
+      <label>Make: <input type="text" name="make" /></label>
+      <label>Model: <input type="text" name="model" /></label><br />
+      <label>Size (mm): <input type="text" name="size" /></label>
+      <label>Serial No: <input type="text" name="serial" /></label><br />
+    </fieldset>
+
+    <fieldset>
+      <legend>Strainer</legend>
+      <label><input type="checkbox" name="strainer_installed" /> Strainer Installed</label><br />
+      <label><input type="checkbox" name="strainer_cleaned" /> Strainer Cleaned</label>
+    </fieldset>
+
+    
+        
+  <fieldset>
+  <legend><strong>Test Results</strong></legend>
+  <table border="1" style="border-collapse: collapse; width: 100%; text-align: center;">
+    <thead>
+      <tr style="background-color: #f2f2f2;">
+        <th style="width: 20%;"></th>
+        <th>Check Valve 1</th>
+        <th>Check Valve 2</th>
+        <th>Downstream Isolation Valve</th>
+        <th>Relief Valve</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>☑ Closed Tight</strong></td>
+        <td><input type="checkbox" name="cv1_closed" /></td>
+        <td><input type="checkbox" name="cv2_closed" /></td>
+        <td><input type="checkbox" name="downstream_closed" /></td>
+        <td><input type="checkbox" name="relief_closed" /></td>
+      </tr>
+      <tr>
+        <td><strong>☑ Leaked</strong></td>
+        <td><input type="checkbox" name="cv1_leaked" /></td>
+        <td><input type="checkbox" name="cv2_leaked" /></td>
+        <td><input type="checkbox" name="downstream_leaked" /></td>
+        <td><input type="checkbox" name="relief_leaked" /></td>
+      </tr>
+      <tr>
+        <td><strong>kPa</strong></td>
+        <td><input type="text" name="cv1_kpa" style="width: 80%;" /></td>
+        <td><input type="text" name="cv2_kpa" style="width: 80%;" /></td>
+        <td><input type="text" name="downstream_kpa" style="width: 80%;" /></td>
+        <td><input type="text" name="relief_kpa" style="width: 80%;" /></td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>
+
+
+<fieldset>
+  <legend><strong>Single Check Valve Testable - SCVT / SCDAT</strong></legend>
+
+  <!-- Upstream Isolation Valve -->
+  <label>Upstream Isolation Valve:</label><br>
+  <label><input type="checkbox" name="upstream_isolation_valve_closed"> Closed Tight</label>
+  <label><input type="checkbox" name="upstream_isolation_valve_leaked"> Leaked</label><br>
+  <label>kPa: <input type="text" name="upstream_isolation_valve_kpa"></label><br><br>
+
+  <!-- Downstream Isolation Valve -->
+  <label>Downstream Isolation Valve:</label><br>
+  <label><input type="checkbox" name="downstream_isolation_valve_closed"> Closed Tight</label>
+  <label><input type="checkbox" name="downstream_isolation_valve_leaked"> Leaked</label><br>
+  <label>kPa: <input type="text" name="downstream_isolation_valve_kpa"></label><br><br>
+
+  <!-- Main Check Valve -->
+  <label>Main Check Valve:</label><br>
+  <label><input type="checkbox" name="main_check_valve_closed"> Closed Tight</label>
+  <label><input type="checkbox" name="main_check_valve_leaked"> Leaked</label><br>
+  <label>kPa: <input type="text" name="main_check_valve_kpa"></label><br><br>
+
+  <!-- By Pass Dual Check Valve -->
+  <label>By Pass Dual Check Valve:</label><br>
+  <label><input type="checkbox" name="bypass_dual_check_valve_closed"> Closed Tight</label>
+  <label><input type="checkbox" name="bypass_dual_check_valve_leaked"> Leaked</label><br>
+  <label>kPa: <input type="text" name="bypass_dual_check_valve_kpa"></label><br><br>
+
+  <!-- SCDAT + Fire Service -->
+  <label>SCDAT Pressure Difference (kPa): <input type="text" name="scdat_pressure"></label><br><br>
+  <label>Fire Service Meter No (if applicable): <input type="text" name="fire_meter_no"></label><br><br>
+  <label>Serial No: <input type="text" name="fire_serial_no"></label><br><br>
+</fieldset>
+
+<fieldset>
+  <legend>Device Compliance</legend>
+
+  <label>
+    Installation complies with AS/NZS3500.1:
+    <label><input type="radio" name="installation_complies" value="yes" required> Yes</label>
+    <label><input type="radio" name="installation_complies" value="no"> No</label>
+  </label>
+  <br><br>
+
+  <label>
+    Device Test Results:
+    <label><input type="radio" name="device_test_result" value="pass" required> Pass</label>
+    <label><input type="radio" name="device_test_result" value="fail"> Fail</label>
+  </label>
+  <br><br>
+</fieldset>
+
+
+
+      
+      <fieldset>
+        <legend>Comments / Remarks</legend>
+        <textarea name="comments" rows="4" placeholder="Add any additional comments..."></textarea>
+      </fieldset>
+      
+      <fieldset>
+        <legend>Certification</legend>
+        <label>Date: <input type="date" name="cert_date" /></label><br />
+        <p><strong>Cert Signature:</strong> To sign, please download the PDF and use Adobe Acrobat or an approved digital signing tool.</p>
+      </fieldset>
+
+    <div class="button-group">
+        <button type="submit">Save Test Data</button>
+        <button type="button" onclick="clearForm()">Clear Saved Data</button>
+        <button type="button" onclick="showSavedReports()">📂 View Saved Reports</button>
+    </div>
+
+<!-- Saved Reports UI: Search + List -->
+<div style="margin-top: 2rem;">
+  <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 2rem;">
+    <input id="reportSearchInput" type="text" placeholder="🔍 Search by Job ID..." 
+    style="flex-grow: 1; padding: 0.75rem 1rem; font-size: 1.1rem; border-radius: 6px; border: 1px solid #ccc;" />
+    <button onclick="showSavedReports()"
+    style="padding: 0.5rem 1rem; font-size: 0.9rem; background-color: #007bff; color: white; border: none; border-radius: 6px; cursor: pointer;">
+    Search
+    </button>
+  </div>
+  <div id="savedReportsList"></div>
+</div>
+    </form>
+  </body>
+  <!-- At end of body for proper loading -->
+<script src="logoBase64.js"></script>
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</html>
