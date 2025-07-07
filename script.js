@@ -1,8 +1,12 @@
 // === Overhaul Backflow Report Storage System ===
 // === version: 2025-07-07 
+
 const form = document.getElementById('backflowForm');
+const searchInput = document.getElementById('reportSearchInput'); 
+
 searchInput.style.marginBottom = '1rem';
 searchInput.addEventListener('input', showSavedReports);
+
 
 form.addEventListener('submit', function (event) {
   event.preventDefault();
