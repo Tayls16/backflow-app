@@ -287,6 +287,14 @@ doc.text("Single Check Valve Testable - SCVT / SCDAT", 15, y);
 y += 8;
 doc.setFont(undefined, 'normal');
 
+// SCDAT & Fire Service Details
+doc.text(`Fire Service Meter No: ${data.fire_meter_no || ''}`, 15, y);
+y += 7;
+doc.text(`Serial No: ${data.fire_serial_no || ''}`, 15, y);
+y += 10;
+doc.text(`SCDAT Pressure Difference: ${data.scdat_pressure || ''} kPa`, 15, y);
+y += 7;
+
 // Define columns
 const valveLabels = [
   "Upstream Isolation Valve",
@@ -294,6 +302,7 @@ const valveLabels = [
   "Main Check Valve",
   "By Pass Dual Check Valve"
 ];
+  
 
 const valveFields = [
   { label: "Upstream Isolation Valve", closed: "upstream_isolation_valve_closed", leaked: "upstream_isolation_valve_leaked", kpa: "upstream_isolation_valve_kpa" },
@@ -309,16 +318,6 @@ valveFields.forEach((v) => {
   doc.text(`kPa: ${data[v.kpa] || ''}`, 180, y);
   y += 7;
 });
-
-
-
-// SCDAT & Fire Service Details
-doc.text(`SCDAT Pressure Difference: ${data.scdat_pressure || ''} kPa`, 15, y);
-y += 7;
-doc.text(`Fire Service Meter No: ${data.fire_meter_no || ''}`, 15, y);
-y += 7;
-doc.text(`Serial No: ${data.fire_serial_no || ''}`, 15, y);
-y += 10;
 
 
 
