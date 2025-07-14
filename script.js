@@ -216,6 +216,9 @@ const col1 = 15;
 const col2 = 90;
 const col3 = 160;
 
+doc.text(`Main Meter No: ${data.main_meter_no || ''}`, col2, y);
+y += 7;
+
 // Row 1
 doc.text(`Protection Type: ${data.protection_type || ''}`, col1, y);
 doc.text(`Location: ${data.device_location || ''}`, col2, y);
