@@ -231,10 +231,8 @@ y += 7;
 // Row 3
 doc.text(`Main Meter No: ${data.main_meter_no || ''}`, col1, y);
 doc.text(`Serial: ${data.serial || ''}`, col2, y);
-y += 10;
-
-// Add Strainer info on new line, last row in Device Info
-let strainerText = '';
+  
+  let strainerText = '';
 if (data.strainer_cleaned === 'on' && data.strainer_installed === 'on') {
   strainerText = 'Cleaned & Installed';
 } else if (data.strainer_cleaned === 'on') {
@@ -246,6 +244,7 @@ if (data.strainer_cleaned === 'on' && data.strainer_installed === 'on') {
 if (strainerText) {
   doc.text(`Strainer: ${strainerText}`, col3, y);
 }
+y += 10;
 
  // ==== Test Results Section ====
 doc.setFont(undefined, 'bold');
