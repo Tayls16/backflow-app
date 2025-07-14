@@ -216,9 +216,6 @@ const col1 = 15;
 const col2 = 90;
 const col3 = 160;
 
-doc.text(`Main Meter No: ${data.main_meter_no || ''}`, col2, y);
-y += 7;
-
 // Row 1
 doc.text(`Protection Type: ${data.protection_type || ''}`, col1, y);
 doc.text(`Location: ${data.device_location || ''}`, col2, y);
@@ -232,9 +229,9 @@ doc.text(`Size: ${data.size || ''}`, col3, y);
 y += 7;
 
 // Row 3
-doc.text(`Serial: ${data.serial || ''}`, col1, y);
-doc.text(`Strainer Cleaned: ${data.strainer_cleaned || ''}`, col2, y);
-doc.text(`Serial: ${data.serial || ''}`, col3, y);
+doc.text(`Main Meter No: ${data.main_meter_no || ''}`, col1, y);
+doc.text(`Serial: ${data.serial || ''}`, col2, y);
+doc.text(`Strainer Cleaned: ${data.strainer_cleaned || ''}`, col3, y);
 y += 10;
 
  // ==== Test Results Section ====
