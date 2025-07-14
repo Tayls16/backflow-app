@@ -226,7 +226,7 @@ y += 7;
 doc.text(`Make: ${data.make || ''}`, col1, y);
 doc.text(`Model: ${data.model || ''}`, col2, y);
 doc.text(`Size: ${data.size || ''}`, col3, y);
-y += 4;
+y += 7;
 
 // Row 3
 doc.text(`Main Meter No: ${data.main_meter_no || ''}`, col1, y);
