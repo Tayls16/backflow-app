@@ -46,11 +46,16 @@
 
     <fieldset>
       <legend>Device Info</legend>
+
+      <label>Main Meter No: <input type="text" name="main_meter_no" /></label><br />
+      
       <label><strong>Device Protection Type:</strong></label><br>
       <label><input type="radio" name="protection_type" value="Zone"> Zone Protection</label>
       <label><input type="radio" name="protection_type" value="Containment"> Containment Protection</label>
       <label><input type="radio" name="protection_type" value="Individual"> Individual Protection</label>
+      
       <label>Device Location: <input type="text" name="device_location" /></label><br />
+      
       <label>Device Type:
         <select name="device_type">
           <option value="reduced">Reduced Pressure Zone Device</option>
@@ -58,10 +63,15 @@
           <option value="single">Single Check Valve</option>
         </select>
       </label><br />
+      
       <label>Make: <input type="text" name="make" /></label>
+      
       <label>Model: <input type="text" name="model" /></label><br />
+      
       <label>Size (mm): <input type="text" name="size" /></label>
+      
       <label>Serial No: <input type="text" name="serial" /></label><br />
+      
     </fieldset>
 
     <fieldset>
