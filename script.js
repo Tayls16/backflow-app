@@ -226,7 +226,7 @@ y += 7;
 doc.text(`Make: ${data.make || ''}`, col1, y);
 doc.text(`Model: ${data.model || ''}`, col2, y);
 doc.text(`Size: ${data.size || ''}`, col3, y);
-y += 7;
+y += 4;
 
 // Row 3
 doc.text(`Main Meter No: ${data.main_meter_no || ''}`, col1, y);
@@ -244,7 +244,7 @@ if (data.strainer_cleaned === 'on' && data.strainer_installed === 'on') {
 if (strainerText) {
   doc.text(`Strainer: ${strainerText}`, col3, y);
 }
-y += 7;
+y += 10;
 
  // ==== Test Results Section ====
 doc.setFont(undefined, 'bold');
