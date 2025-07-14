@@ -163,7 +163,7 @@ async function exportToPDF(data, jobId) {
     `Address: ${data.address || ''}`,
     `Suburb: ${data.suburb || ''}`,
     `Postcode: ${data.postcode || ''}`,
-    `Phone: ${data.phone || ''}`
+    `Business Type: ${data.business_type || ''}`
   ];
 
 let testType = '';
