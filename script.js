@@ -218,17 +218,20 @@ const col3 = 140;
 
 // Row 1
 doc.text(`Protection Type: ${data.protection_type || ''}`, col1, y);
-doc.text(`Location: ${data.device_location || ''}`, col2, y);
-doc.text(`Device Type: ${data.device_type || ''}`, col3, y);
+doc.text(`Device Type: ${data.device_type || ''}`, col2, y);
 y += 7;
 
 // Row 2
+doc.text(`Location: ${data.device_location || ''}`, col1, y);
+y += 7;
+
+// Row 3
 doc.text(`Make: ${data.make || ''}`, col1, y);
 doc.text(`Model: ${data.model || ''}`, col2, y);
 doc.text(`Size: ${data.size || ''}`, col3, y);
 y += 7;
 
-// Row 3
+// Row 4
 doc.text(`Main Meter No: ${data.main_meter_no || ''}`, col1, y);
 doc.text(`Serial: ${data.serial || ''}`, col2, y);
   
