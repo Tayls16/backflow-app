@@ -214,7 +214,7 @@ doc.setFont(undefined, 'normal');
 // Column X positions
 const col1 = 15;
 const col2 = 90;
-const col3 = 160;
+const col3 = 140;
 
 // Row 1
 doc.text(`Protection Type: ${data.protection_type || ''}`, col1, y);
