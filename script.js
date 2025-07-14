@@ -244,7 +244,7 @@ if (data.strainer_cleaned === 'on' && data.strainer_installed === 'on') {
 if (strainerText) {
   doc.text(`Strainer: ${strainerText}`, col3, y);
 }
-y += 10;
+y += 7;
 
  // ==== Test Results Section ====
 doc.setFont(undefined, 'bold');
