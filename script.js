@@ -335,6 +335,16 @@ valveFields.forEach((v) => {
 doc.text(`SCDAT Pressure Difference: ${data.scdat_pressure || ''} kPa`, 15, y);
 y += 7;
 
+// ==== Registered Air Gap (RAG) Section ====
+doc.setFont(undefined, 'bold');
+doc.text("Registered Air Gap (RAG)", 15, y);
+y += 8;
+doc.setFont(undefined, 'normal');
+
+doc.text(`DIA Height: ${data.dia_height || ''}`, 15, y);
+doc.text(`RAG: ${data.rag || ''}`, 90, y);
+y += 10;
+
 
 
 // === Comments / Remarks ===
@@ -379,3 +389,4 @@ y += 10;
 }
   doc.save(`BackflowReport-${jobId}.pdf`);
 }
+
