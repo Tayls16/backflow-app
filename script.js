@@ -341,7 +341,7 @@ doc.text("Registered Air Gap (RAG)", 15, y);
 y += 8;
 doc.setFont(undefined, 'normal');
 
-doc.text(`DIA Height: ${data.dia_height || ''}`, 15, y);
+doc.text(`DIA of Pipe: ${data.dia_pipe || ''}`, 15, y);
 doc.text(`RAG: ${data.rag || ''}`, 90, y);
 y += 10;
 
@@ -389,5 +389,6 @@ y += 10;
 }
   doc.save(`BackflowReport-${jobId}.pdf`);
 }
+
 
 
